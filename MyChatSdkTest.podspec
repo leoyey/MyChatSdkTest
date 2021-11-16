@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "MyChatSdkTest"
   spec.version      = "0.0.1"
-  spec.summary      = "A short description of MyChatSdkTest."
+  spec.summary      = "MyChatSdkTest for yzchat"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,6 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+  MyChatSdkTest for yzchat ios
                    DESC
 
   spec.homepage     = "https://github.com/leoyey/MyChatSdkTest"
@@ -38,7 +39,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = { :type => 'MIT' }
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -91,6 +92,11 @@ Pod::Spec.new do |spec|
   #
 
   spec.platform     = :ios, '10.0'
+  spec.ios.deployment_target = '10.0'
+  spec.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
+  spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
   #需要包含的源文件
   spec.source_files = 'YZChat/YZChat.framework/Headers/*.{h}'
